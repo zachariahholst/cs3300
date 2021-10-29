@@ -1,5 +1,7 @@
 require "rails_helper"
 
+#example tests
+#ensures number equals 42
 RSpec.describe "The math below is right..." do
   it "should equal 42" do
     expect(6 * 7).to eq(42)
@@ -8,6 +10,7 @@ end
 
 require "rails_helper"
 
+#ensures string is empty
 RSpec.describe "hello spec" do
   # ...
   describe String do

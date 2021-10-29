@@ -1,4 +1,4 @@
 class Project < ApplicationRecord
-    #requires a tittle and description
+    #requires a title and description
     validates_presence_of :title, :description
 end
