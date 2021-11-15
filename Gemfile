@@ -77,5 +77,9 @@ end
 group :test do
   gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'database_cleaner', '~> 1.5'
+  gem 'factory_bot_rails'
 end
+
+gem 'devise'
+gem 'pundit'
 
