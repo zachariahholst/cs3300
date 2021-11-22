@@ -2,6 +2,7 @@ require "rails_helper"
 
 #ensures controller is working propery, getting the correct index and showing the corect project
 RSpec.describe ProjectsController, type: :controller do
+
   context "GET #index" do
     it "returns a success response" do
       get :index
