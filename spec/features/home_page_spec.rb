@@ -7,4 +7,9 @@ RSpec.feature "Visiting the homepage", type: :feature do
     visit root_path
     expect(page).to have_text("Projects")
   end
+
+  scenario "The visitor should see the show button" do
+    visit root_patt
+    page.find('body').text("Show")
+  end
 end
