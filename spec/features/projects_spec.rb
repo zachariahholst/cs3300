@@ -72,7 +72,7 @@ RSpec.feature "Projects", type: :feature do
   context "Remove existing project" do
     let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
-      user = FactoryBot.build(:user)
+      user = FactoryBot.create(:user)
       login_as(user)
       visit projects_path
       click_link "Destroy"
