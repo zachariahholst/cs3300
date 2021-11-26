@@ -1,36 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each do |project| %>
-    <tr>
-    <td><%= project.title %></td>
-    <td><%= project.description %></td>
-    <td><%= link_to 'Show', project %></td>
-    <% if user_signed_in? %>
-         <td><%= link_to 'Edit', edit_project_path(project) %></td>
-         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
-    <% end %>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if user_signed_in? %>
-  <%= link_to 'New Project', new_project_path %>
-<% end %>
+<div class="container bg-secondary">
+  <p class="text-white", id="notice"><%= notice %></p>
+  
+  <p></p>
+  <h1 class="text-white">Projects</h1>
+  
+  <p></p>
+  <% if user_signed_in? %>
+    <span ><%= link_to 'New Project', new_project_path, :class => "rounded bg-info text-white" %></span>
+  <%end%>
+  
+  <p></p>
+</div>
 
 
+<div class="container" >
+
+  <p></p>
+  <span><%="Number of projects: "%></span>
+  <span><%=@projects.count %></span>
+  <div class="row ">
+     <% @projects.each do |project| %>
+      <div class="col-md-4 bg-light" >
+        <h2><%= project.title %></h2>
+        <p><%= project.description %> </p>
+        <td class="text-center">
+        <span><%= link_to 'Show', project, :class => "rounded bg-info text-white" %></span>
+        <% if user_signed_in? %>
+         <span> <%= link_to 'Edit', edit_project_path(project), :class => "rounded bg-success text-white" %></span>
+         <span><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "rounded bg-danger text-white" %></span> 
+        <% end %>
+      </td>
+      </div>
+     <%end%>
+  </div>
+</div>
 
