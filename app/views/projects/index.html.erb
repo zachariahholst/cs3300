@@ -1,8 +1,9 @@
 
-<div class="container bg-secondary">
-  <p class="text-white", id="notice"><%= notice %></p>
+
+<div class="container-fullwidth bg-secondary ">
+  <span class="text-white bg-secondary", id="notice"><%= notice %></span>
   
-  <p></p>
+  
   <h1 class="text-white">Projects</h1>
   
   <p></p>
@@ -10,15 +11,15 @@
     <span ><%= link_to 'New Project', new_project_path, :class => "rounded bg-info text-white" %></span>
   <%end%>
   
-  <p></p>
+  <p><br></p>
 </div>
 
 
 <div class="container" >
 
-  <p></p>
+  <p><br></p>
   <span><%="Number of projects: "%></span>
-  <span><%=@projects.count %></span>
+  <span><%= @projects.count %></span>
   <div class="row ">
      <% @projects.each do |project| %>
       <div class="col-md-4 bg-light" >

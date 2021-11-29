@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
-<div class="container">
+<div class="container-fullwidth">
+
   <header>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -19,13 +20,14 @@
       <div class="collapse navbar-collapse" id="navbarExample01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item active">
-            <span style="margin-left:2.5em"><%= link_to 'Home', root_path, :class => "text-white" %></span>
+            <span><%= link_to 'Home', root_path, :class => "text-white" %></span>
           </li>
           <li class="nav-item">
             <% if user_signed_in? %>
                 <span style="margin-left:2.5em"><%= link_to 'Profile', edit_user_registration_path, :class => "text-white" %></span>
                 <span style="margin-left:2.5em"><%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => "text-white" %></span>
-                <span class="text-white" style="margin-left:35em"><%= current_user.email %></span>
+                <span class = "text-white" style="margin-left:30em"><%="User Signed In: "%></span>
+                <span class="text-white" style="margin-left:0.2em"><%= current_user.email %></span>
             <% else %>
               <span style="margin-left:2.5em"><%= link_to 'Log In', new_user_session_path, :class => "text-white" %></span>
               <span style="margin-left:2.5em"><%= link_to 'Sign Up', new_user_registration_path, :class => "text-white" %></span>
