@@ -18,7 +18,7 @@ RSpec.feature "Projects", type: :feature do
       login_as(user)
       fill_in "Description", with: "Test description"
       fill_in "Title", with: "Test Title"
-      click_button "Create Project"
+      click_button "Submit Project"
       expect(page).to have_content("Project was successfully created")
     end
 
@@ -26,7 +26,7 @@ RSpec.feature "Projects", type: :feature do
     scenario "should fail" do
       user = FactoryBot.build(:user)
       login_as(user)
-      click_button "Create Project"
+      click_button "Submit Project"
       fill_in "Title", with: "Test Title"
       expect(page).to have_content("Description can't be blank")
     end
@@ -35,7 +35,7 @@ RSpec.feature "Projects", type: :feature do
      scenario "should fail" do
       user = FactoryBot.build(:user)
       login_as(user)
-      click_button "Create Project"
+      click_button "Submit Project"
       fill_in "Description", with: "Test description"
       expect(page).to have_content("Title can't be blank")
     end   
@@ -55,16 +55,17 @@ RSpec.feature "Projects", type: :feature do
       within("form") do
         fill_in "Description", with: "New description content"
       end
-      click_button "Update Project"
+      click_button "Submit Project"
       expect(page).to have_content("Project was successfully updated")
     end
+    
 
     #fail if description blank
     scenario "should fail" do
       within("form") do
         fill_in "Description", with: ""
       end
-      click_button "Update Project"
+      click_button "Submit Project"
       expect(page).to have_content("Description can't be blank")
     end
   end
@@ -76,9 +77,8 @@ RSpec.feature "Projects", type: :feature do
       login_as(user)
       visit projects_path
       click_link "Destroy"
-      #page.find('body').text("Project was successfully destroyed.")
-      #expect(page).to have_content("Project was successfully destroyed.")
-      #expect(Project.count).to eq(0)
+      expect(page).to have_content("Project was successfully destroyed.")
+      expect(Project.count).to eq(0)
     end
   end
 end

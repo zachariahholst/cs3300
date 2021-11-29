@@ -1,6 +1,13 @@
-<h1>Editing Project</h1>
 
+
+<div class="container">
+  <div class="page-header">
+    <h1>Editing Project</h1>
+    <h5><span class="label label-danger">Complete all fields to update this project </span></h5>
+  </div>
+</div>
+<div class="container">
 <%= render 'form', project: @project %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path, :class => "rounded bg-info text-white"  %>
+</div>
