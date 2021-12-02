@@ -3,8 +3,9 @@
 <div class="container-fullwidth bg-secondary ">
   <span class="text-white bg-secondary", id="notice"><%= notice %></span>
   
-  
-  <h1 class="text-white">Projects</h1>
+  <h1 class="text-white" style="margin-left:0.8em">Welcome!</h1>
+  <span class="text-white" style="margin-left:2.5em">This site is for all students wishing to upload their projects for their peers</span>
+
   
   <p></p>
   <% if user_signed_in? %>
@@ -14,12 +15,10 @@
   <p><br></p>
 </div>
 
+<h1 class="text-dark" style="margin-left:2.5em">Projects</h1>
 
 <div class="container" >
 
-  <p><br></p>
-  <span><%="Number of projects: "%></span>
-  <span><%= @projects.count %></span>
   <div class="row ">
      <% @projects.each do |project| %>
       <div class="col-md-4 bg-light" >
@@ -37,3 +36,5 @@
   </div>
 </div>
 
+<p><br><br><br></p>
+<span>Site created by: Zach Holst</span>
