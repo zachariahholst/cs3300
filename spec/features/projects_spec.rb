@@ -7,15 +7,13 @@ RSpec.feature "Projects", type: :feature do
 
   context "Create new project" do
     before(:each) do
-      user = FactoryBot.build(:user)
+      user = FactoryBot.create(:user)
       login_as(user)
       visit new_project_path
     end
 
     #succesful creation if title and description present
     scenario "should be successful" do
-      user = FactoryBot.build(:user)
-      login_as(user)
       fill_in "Description", with: "Test description"
       fill_in "Title", with: "Test Title"
       click_button "Submit Project"
@@ -24,8 +22,6 @@ RSpec.feature "Projects", type: :feature do
 
     #unsuccesful if description is blank
     scenario "should fail" do
-      user = FactoryBot.build(:user)
-      login_as(user)
       click_button "Submit Project"
       fill_in "Title", with: "Test Title"
       expect(page).to have_content("Description can't be blank")
@@ -33,8 +29,6 @@ RSpec.feature "Projects", type: :feature do
 
     #unsuccesful if title is blank
      scenario "should fail" do
-      user = FactoryBot.build(:user)
-      login_as(user)
       click_button "Submit Project"
       fill_in "Description", with: "Test description"
       expect(page).to have_content("Title can't be blank")
@@ -45,7 +39,7 @@ RSpec.feature "Projects", type: :feature do
   context "Update project" do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
-      user = FactoryBot.build(:user)
+      user = FactoryBot.create(:user)
       login_as(user)
       visit edit_project_path(project)
     end
